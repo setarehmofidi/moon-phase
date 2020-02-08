@@ -1,17 +1,14 @@
-let frames=1
-let xrot= -1
-let spin=0
 let phaseSlider;
 let zlider;
 let whichDay
 function setup() {
   createCanvas(windowWidth,windowHeight,WEBGL);
    phaseSlider = createSlider(-3,3,0,0,1);
-   phaseSlider.position(width/2, 80);
+   //phaseSlider.position(width/2, 80);
    zlider = createSlider(-3,3,0,0,1);
-   zlider.position(width/4, 80);
+   //zlider.position(width/4, 80);
    whichDay = createSlider(1,30,15,1);
-   whichDay.position(width/3, height/1.5);
+   whichDay.position(width/2.25, height/8);
 }
 
 function windowResized() {
@@ -21,12 +18,12 @@ function windowResized() {
 function draw() {
 background(0);
 push()
-translate(-width/2,-height/2)
- var galaxy = { 
-  locationX : random(width),
-  locationY : random(height),
-  size : random(1,6)
-  }
+    translate(-width/2,-height/2)
+    var galaxy = { 
+    locationX : random(width),
+    locationY : random(height),
+    size : random(1,6)
+    }
   ellipse(galaxy.locationX ,galaxy.locationY, galaxy.size, galaxy.size);
 pop()
 
@@ -136,21 +133,10 @@ function drawMoon(day,moonsize){
     }
 
 
-
-
-
-
-
-   // rotateY(radians(spin%360))
-
-    translate(0,0,0)
-
-//translate(width/40,height/35);
-
+ translate(0,0,0)
 
 noStroke();
 
 sphere(moonsize);
 
- spin++;
 }
