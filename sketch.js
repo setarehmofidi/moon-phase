@@ -1,6 +1,7 @@
 let phaseSlider;
 let zlider;
 let whichDay
+let spin;
 function setup() {
   createCanvas(windowWidth,windowHeight,WEBGL);
    phaseSlider = createSlider(-3,3,0,0,1);
@@ -19,25 +20,22 @@ function draw() {
 background(0);
 push()
     translate(-width/2,-height/2)
-    var galaxy = { 
-    locationX : random(width),
-    locationY : random(height),
-    size : random(1,6)
-    }
-  ellipse(galaxy.locationX ,galaxy.locationY, galaxy.size, galaxy.size);
+    for(i=0;i<10;i++){
+      let r=random(1,6)
+      ellipse(random(width),random(height),r,r)
+       }
 pop()
 
 console.log(whichDay.value())
-
-  
+// rotateY(radians(spin%360)) 
 drawMoon (whichDay.value(),width*0.1)
- 
 
- 
+
+ spin++;
 }
 
 function drawMoon(day,moonsize){
- 
+
   moonPhase = phaseSlider.value();
   moonZ= zlider.value();
   //directionalLight(250, 255, 250, -moonPhase,0,moonZ);
@@ -131,7 +129,6 @@ function drawMoon(day,moonsize){
     if (day==30){
     directionalLight(200,200,200,2,0,3)
     }
-
 
  translate(0,0,0)
 
